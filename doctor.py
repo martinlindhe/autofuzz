@@ -9,8 +9,12 @@ from distutils.version import StrictVersion
 # TODO detect installed Xcode version
 
 
+# plutil -p /Applications/Xcode.app/Contents/Info.plist | grep "CFBundleShortVersionString"
+#       "CFBundleShortVersionString" => "5.1.1"
+
 class OsxProbe:
     def RunCommand(self, command):
+        # TODO move to util class
         return subprocess.check_output(
             command,
             shell=True,
@@ -34,10 +38,8 @@ class OsxProbe:
         return False
 
     def IsSupported(self):
-        ver = self.GetVersionNumber()
-        if StrictVersion(ver) >= StrictVersion("10.9.5"):
-            if self.IsDetected() and self.Is64Bit():
-                return True
+        if self.IsDetected() and self.Is64Bit() and StrictVersion(self.GetVersionNumber()) >= StrictVersion("10.9.5"):
+            return True
         return False
 
     def IsDetected(self):
@@ -68,19 +70,13 @@ class OsxProbe:
 
 probe = OsxProbe()
 
-if not probe.IsDetected():
-    print("ERROR - only OSX is supported")
-    sys.exit()
-
-if probe.GetVersionNumber() != "10.9.5":
-    # TODO accept multiple supported OSX versions
-    print("ERROR - only OSX 10.9.5 is supported")
-    sys.exit()
-
-if not probe.Is64Bit():
-    print("ERROR - not 64bit")
-    sys.exit()
-
 if not probe.IsSupported():
     print("ERROR - unsupported system")
+
+    if not probe.IsDetected():
+        print("ERROR - only OSX is supported")
+
+    if not probe.Is64Bit():
+        print("ERROR - not 64bit")
+
     sys.exit()
