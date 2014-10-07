@@ -38,9 +38,19 @@ class OsxProbe:
         return False
 
     def IsSupported(self):
-        if self.IsDetected() and self.Is64Bit() and StrictVersion(self.GetVersionNumber()) >= StrictVersion("10.9.5"):
-            return True
-        return False
+        if not self.IsDetected():
+            print("ERROR - only OSX is supported")
+            return False
+
+        if not self.Is64Bit():
+            print("ERROR - not 64bit")
+            return False
+
+        if StrictVersion(self.GetVersionNumber()) < StrictVersion("10.9.5"):
+            print("ERROR - too old osx version")
+            return False
+
+        return True
 
     def IsDetected(self):
         if sys.platform == "darwin":
@@ -71,12 +81,4 @@ class OsxProbe:
 probe = OsxProbe()
 
 if not probe.IsSupported():
-    print("ERROR - unsupported system")
-
-    if not probe.IsDetected():
-        print("ERROR - only OSX is supported")
-
-    if not probe.Is64Bit():
-        print("ERROR - not 64bit")
-
     sys.exit()
