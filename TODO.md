@@ -13,7 +13,6 @@ python3:
 		"cppdep check" will check if dependencies are met
 		"cppdep doctor" will point out if xcode is too old, XXX detect xcode version
 
-	XXX: get osx version from cli: "sw_vers -productVersion"
 
 
 C# built build system for c++ projects
@@ -34,4 +33,3 @@ opencv
 
 
 question: http://programmers.stackexchange.com/questions/170679/why-are-there-no-package-management-systems-for-c-and-c
-
