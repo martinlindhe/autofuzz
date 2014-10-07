@@ -1,5 +1,21 @@
 in what lang? C# or Python3?
 
+
+python3:
+	NEED: OS class: am i running win/linux/mac?
+	NEED: class that find system compilers: gcc, llvm/clang
+	NEED: homebrew-like recipes, in code, extend from Recipe class
+	NEED: in recipe, compile from source instructions
+	NEED-later: in recpie, install pre-build binary (?)
+	NEED: generate cmake-file for your project using a project recipe:
+		proj recipe: project name, dependencies and additional steps to take when building
+		"cppdep update" will update depencencies, if needed
+		"cppdep check" will check if dependencies are met
+		"cppdep doctor" will point out if xcode is too old, XXX detect xcode version
+
+	XXX: get osx version from cli: "sw_vers -productVersion"
+
+
 C# built build system for c++ projects
 
 recipe that describe a library, how to build it from source, similar to homebrew
