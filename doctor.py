@@ -6,11 +6,7 @@ import psutil
 from distutils.version import StrictVersion
 
 # TODO move OsxProbe to class lib & auto load it
-# TODO detect installed Xcode version
 
-
-# plutil -p /Applications/Xcode.app/Contents/Info.plist | grep "CFBundleShortVersionString"
-#       "CFBundleShortVersionString" => "5.1.1"
 
 class OsxProbe:
     def RunCommand(self, command):
@@ -23,6 +19,10 @@ class OsxProbe:
     def GetVersionNumber(self):
         raw = self.RunCommand("sw_vers -productVersion")
         return raw.decode('ascii').strip("\n")
+
+    def GetApplicationVersionNumber(self, appName):
+        raw = self.RunCommand("plutil -p /Applications/" + appName + ".app/Contents/Info.plist | grep 'CFBundleShortVersionString' | grep -o '\"[[:digit:].]*\"'")
+        return raw.decode('ascii').strip("\"\n")
 
     def KillProcessAndChildren(proc_pid):
         # TODO move to util class
@@ -48,6 +48,10 @@ class OsxProbe:
 
         if StrictVersion(self.GetVersionNumber()) < StrictVersion("10.9.5"):
             print("ERROR - too old osx version")
+            return False
+
+        if StrictVersion(self.GetApplicationVersionNumber("Xcode")) < StrictVersion("5.1.1"):
+            print("ERROR - Xcode is too old")
             return False
 
         return True
