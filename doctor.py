@@ -7,7 +7,6 @@ from distutils.version import StrictVersion
 
 # TODO move OsxProbe to class lib & auto load it
 
-
 class OsxProbe:
     def RunCommand(self, command):
         # TODO move to util class
@@ -16,7 +15,7 @@ class OsxProbe:
             shell=True,
             stderr=subprocess.STDOUT)
 
-    def GetVersionNumber(self):
+    def GetOsVersionNumber(self):
         raw = self.RunCommand("sw_vers -productVersion")
         return raw.decode('ascii').strip("\n")
 
@@ -46,7 +45,7 @@ class OsxProbe:
             print("ERROR - not 64bit")
             return False
 
-        if StrictVersion(self.GetVersionNumber()) < StrictVersion("10.9.5"):
+        if StrictVersion(self.GetOsVersionNumber()) < StrictVersion("10.9.5"):
             print("ERROR - too old osx version")
             return False
 
@@ -61,9 +60,9 @@ class OsxProbe:
             return True
         return False
 
-    def GetVersionName(self):
+    def GetOsVersionName(self):
         ''' @return eg "Mavericks" '''
-        ver = self.GetOsxVersionNumber()
+        ver = self.GetOsVersionNumber()
 
         if StrictVersion(ver) >= StrictVersion("10.10.0"):
             return "Yosemite"
