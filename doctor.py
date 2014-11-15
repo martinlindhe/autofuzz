@@ -2,6 +2,8 @@
 #
 # tool to find issues with current setup
 
+# TODO rework to python2
+
 from lib.OsxProbe import *
 
 
@@ -17,3 +19,6 @@ if not probe.IsSupported():
 
 
 # TODO make sure afl-gcc 0.45b or newer is installed (in path) and see if its 32 or 64bit build
+
+
+# TODO make sure "git" command is available
