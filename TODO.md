@@ -1,3 +1,7 @@
+"c++ dependencies build system"
+XXX det finns andra såna gär projekt
+minsta bästa planen kunde vara att anpassa google Go's pakethanterare för c/c++ ?
+
 in what lang? C# or Python3?
 
 
