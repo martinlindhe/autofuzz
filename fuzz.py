@@ -17,7 +17,11 @@ def get_class(kls):
 def capture_command(command):
     ''' run command and captures output '''
     try:
-        res = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
+        res = subprocess.check_output(
+            command,
+            stderr=subprocess.STDOUT,
+            shell=True
+        )
     except subprocess.CalledProcessError as e:
         print("command returned error code " + str(e.returncode))
         print("    - output: " + e.output)
@@ -30,7 +34,11 @@ def passthru_command(command):
     ''' run command and output on screen '''
     subprocess.call(command, shell=True)
 
+
 rootDir = os.path.dirname(os.path.realpath(__file__))
+
+if not os.path.isdir(rootDir + "/.fuzz-afl"):
+    os.mkdir(rootDir + "/.fuzz-afl")
 
 # TODO take 1 parameter, formula name
 formulaName = "giflib"
@@ -63,10 +71,10 @@ else:
 os.chdir(formulaPath)
 # print("changed cwd to " + os.getcwd())
 
-# TODO support multiple targets somehow
+# TODO support multiple target binaries somehow
 fuzzTarget = formula.targets[0]
 
-if not os.path.isfile(fuzzTarget):
+if not os.path.isfile(fuzzTarget):    # TODO cli switch to force rebuild
     # if target not found, perform clean + build
     for cleanCmd in formula.clean:
         print("CLEAN # " + cleanCmd)
@@ -82,12 +90,18 @@ if not os.path.isfile(fuzzTarget):
 
 print("Found " + fuzzTarget + ", ready to fuzz")
 
-# TODO prepare test cases from dataTypes list
+# find a nonexisting out dir
+outCounter = 1
+while True:
+    aflOutDir = rootDir + "/.fuzz-afl/" + formulaName + "-%04d" % outCounter
+    if not os.path.isdir(aflOutDir):
+        break
+    outCounter += 1
 
+# TODO prepare test cases from dataTypes list
 aflInDir = rootDir + "/testcases/images/gif"
-aflOutDir = rootDir + "/.fuzz-afl/" + formulaName
 aflFuzzTarget = rootDir + "/" + formulaPath + "/" + fuzzTarget
 fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzTarget
-print("Executing: " + fuzzCmd)
+print("FUZZ # " + fuzzCmd)
 
 passthru_command(fuzzCmd)

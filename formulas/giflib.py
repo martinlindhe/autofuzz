@@ -12,7 +12,7 @@ class giflib:
     ]
 
     clean = [
-        "make clean"
+        "make distclean"
     ]
 
     build = [
