@@ -14,7 +14,8 @@ def get_class(kls):
     return m
 
 
-def run_command(command):
+def capture_command(command):
+    ''' run command and captures output '''
     try:
         res = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
     except subprocess.CalledProcessError as e:
@@ -24,6 +25,12 @@ def run_command(command):
 
     return res
 
+
+def passthru_command(command):
+    ''' run command and output on screen '''
+    subprocess.call(command, shell=True)
+
+rootDir = os.path.dirname(os.path.realpath(__file__))
 
 # TODO take 1 parameter, formula name
 formulaName = "giflib"
@@ -49,20 +56,38 @@ if os.path.isdir(gitPath):
 else:
     print("Checking out " + formula.origin + " ...")
 
-    cmd = "git clone " + formula.origin + " .cache/" + formulaName
-    # print("Command: " + cmd)
-    run_command(cmd)
-    print("done")
+    gitClone = "git clone " + formula.origin + " .cache/" + formulaName
+    capture_command(gitClone)
 
 # set current working dir to formulaPath
 os.chdir(formulaPath)
-print("XXX changed cwd to " + os.getcwd())
+# print("changed cwd to " + os.getcwd())
 
-for cleanCmd in formula.clean:
-    print("CLEAN # " + cleanCmd)
-    run_command(cleanCmd)
+# TODO support multiple targets somehow
+fuzzTarget = formula.targets[0]
 
-# TODO  do the build steps
-for buildCmd in formula.build:
-    print("BUILD # " + buildCmd)
-    run_command(buildCmd)
+if not os.path.isfile(fuzzTarget):
+    # if target not found, perform clean + build
+    for cleanCmd in formula.clean:
+        print("CLEAN # " + cleanCmd)
+        capture_command(cleanCmd)
+
+    for buildCmd in formula.build:
+        print("BUILD # " + buildCmd)
+        capture_command(buildCmd)
+
+if not os.path.isfile(fuzzTarget):
+    print("ERROR cant find target " + fuzzTarget + ", giving up")
+    sys.exit()
+
+print("Found " + fuzzTarget + ", ready to fuzz")
+
+# TODO prepare test cases from dataTypes list
+
+aflInDir = rootDir + "/testcases/images/gif"
+aflOutDir = rootDir + "/.fuzz-afl/" + formulaName
+aflFuzzTarget = rootDir + "/" + formulaPath + "/" + fuzzTarget
+fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzTarget
+print("Executing: " + fuzzCmd)
+
+passthru_command(fuzzCmd)
