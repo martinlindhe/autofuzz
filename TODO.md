@@ -1,6 +1,15 @@
+SETUP:
+  pip3 install psutil
+
+
 "c++ dependencies build system"
 XXX det finns andra såna gär projekt
 minsta bästa planen kunde vara att anpassa google Go's pakethanterare för c/c++ ?
+   --- istället! skulle kunna göra ett ramverk för att enkelt fuzza foss-program
+       med detta (?) första target: afl, stöd flera fuzzers, etc
+
+
+
 
 in what lang? C# or Python3?
 
