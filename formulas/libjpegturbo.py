@@ -1,21 +1,23 @@
-# STATUS borked, need release / svn dl
+# STATUS works, but need jpeg input to be good!
 
-class lodepng:
+class libjpegturbo:
     name = __name__
     home = "http://libjpeg-turbo.virtualgl.org/"
     # TODO stable: http://sourceforge.net/projects/libjpeg-turbo/files/1.3.1/libjpeg-turbo-1.3.1.tar.gz/download
     scmOrigin = "svn checkout svn://svn.code.sf.net/p/libjpeg-turbo/code/trunk"
     dataTypes = [
-        "png"
+        "jpg"
     ]
 
-    target = "xxx"
+    target = "djpeg"
     targetParam = ""
 
     clean = [
-        "rm -f example_decode"
+        "make distclean"
     ]
 
     build = [
-        "afl-gcc -x c lodepng.cpp example_decode.c -o example_decode"
+        "autoreconf -fiv",
+        "CC=afl-gcc ./configure --disable-shared",
+        "make"
     ]

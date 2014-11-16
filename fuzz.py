@@ -59,11 +59,12 @@ formulaPath = ".cache/" + formulaName
 
 # TODO remove assumption of git repository, need svn support, etc
 gitPath = formulaPath + "/.git"
-if os.path.isdir(gitPath):
+svnPath = formulaPath + ".svn"
+if os.path.isdir(gitPath) or os.path.isdir(svnPath):
     # TODO if dir exist, do a "git pull" ? also make sure it is pristine
-    print("Checkout found at " + gitPath + ", TODO do update?")
+    print("Checkout found at " + gitPath + " or " + svnPath + ", TODO do update?")
 else:
-    print("Checking out " + formula.scmOrigin + " ...")
+    print("### CHECKOUT " + formula.scmOrigin + " ...")
 
     getScm = formula.scmOrigin + " .cache/" + formulaName
     passthru_command(getScm)
