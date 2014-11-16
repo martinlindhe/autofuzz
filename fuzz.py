@@ -72,8 +72,7 @@ else:
 os.chdir(formulaPath)
 # print("changed cwd to " + os.getcwd())
 
-# TODO support multiple target binaries somehow
-fuzzTarget = formula.targets[0]
+fuzzTarget = formula.target
 
 if not os.path.isfile(fuzzTarget):    # TODO cli switch to force rebuild
     # if target not found, perform clean + build
@@ -102,7 +101,8 @@ while True:
 # TODO prepare test cases from dataTypes list
 aflInDir = rootDir + "/testcases/images/gif"
 aflFuzzTarget = rootDir + "/" + formulaPath + "/" + fuzzTarget
-fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzTarget
-print("FUZZ # " + fuzzCmd)
+aflFuzzTargetParam = formula.targetParam
+fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzTarget + " " + aflFuzzTargetParam
 
+print("FUZZ # " + fuzzCmd)
 passthru_command(fuzzCmd)

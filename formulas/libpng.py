@@ -8,9 +8,8 @@ class libpng:
         "png"
     ]
 
-    targets = [
-        "readpng"
-    ]
+    target = "readpng"
+    targetParam = ""
 
     clean = [
         "make distclean"

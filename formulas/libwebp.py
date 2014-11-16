@@ -1,4 +1,4 @@
-# STATUS broken
+# STATUS runs, but needs to supply a webp test case for better fuzzing!
 
 class libwebp:
     name = __name__
@@ -8,15 +8,15 @@ class libwebp:
         "webp"
     ]
 
-    targets = [
-        "util/giftext"
-    ]
+    target = "examples/dwebp"
+    targetParam = "-- -"
 
     clean = [
         "make distclean"
     ]
 
     build = [
-        "CC=afl-gcc ./autogen.sh --disable-shared",
+        "./autogen.sh",
+        "CC=afl-gcc ./configure --disable-shared",
         "make"
     ]

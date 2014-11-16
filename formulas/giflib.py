@@ -7,9 +7,8 @@ class giflib:
         "gif"
     ]
 
-    targets = [
-        "util/giftext"
-    ]
+    target = "util/giftext"
+    targetParam = ""
 
     clean = [
         "make distclean"
