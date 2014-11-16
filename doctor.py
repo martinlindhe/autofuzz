@@ -4,6 +4,7 @@
 
 # TODO rework to python2
 
+# TODO afl only runs on linux
 from lib.OsxProbe import *
 
 

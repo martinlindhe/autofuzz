@@ -41,7 +41,11 @@ if not os.path.isdir(rootDir + "/.fuzz-afl"):
     os.mkdir(rootDir + "/.fuzz-afl")
 
 # TODO take 1 parameter, formula name
-formulaName = "giflib"
+if len(sys.argv) < 2:
+    print("ERROR: supply formula name")
+    sys.exit()
+
+formulaName = sys.argv[1]
 
 try:
     formula = get_class("formulas." + formulaName + "." + formulaName)
@@ -49,23 +53,20 @@ except ImportError:
     print("ERROR: No such formula " + formulaName)
     sys.exit()
 
-if formula.scm != "git":
-    print("ERROR: unsupported scm: " + formula.scm)
-    sys.exit()
-
 print("### " + formulaName)
 
 formulaPath = ".cache/" + formulaName
 
+# TODO remove assumption of git repository, need svn support, etc
 gitPath = formulaPath + "/.git"
 if os.path.isdir(gitPath):
     # TODO if dir exist, do a "git pull" ? also make sure it is pristine
     print("Checkout found at " + gitPath + ", TODO do update?")
 else:
-    print("Checking out " + formula.origin + " ...")
+    print("Checking out " + formula.scmOrigin + " ...")
 
-    gitClone = "git clone " + formula.origin + " .cache/" + formulaName
-    capture_command(gitClone)
+    getScm = formula.scmOrigin + " .cache/" + formulaName
+    passthru_command(getScm)
 
 # set current working dir to formulaPath
 os.chdir(formulaPath)
@@ -82,7 +83,7 @@ if not os.path.isfile(fuzzTarget):    # TODO cli switch to force rebuild
 
     for buildCmd in formula.build:
         print("BUILD # " + buildCmd)
-        capture_command(buildCmd)
+        passthru_command(buildCmd)
 
 if not os.path.isfile(fuzzTarget):
     print("ERROR cant find target " + fuzzTarget + ", giving up")

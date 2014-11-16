@@ -1,10 +1,11 @@
+# STATUS broken
 
-class giflib:
+class libwebp:
     name = __name__
-    home = "http://giflib.sourceforge.net/"
-    scmOrigin = "git clone git://git.code.sf.net/p/giflib/code"
+    home = "https://developers.google.com/speed/webp/"
+    scmOrigin = "git clone https://chromium.googlesource.com/webm/libwebp"
     dataTypes = [
-        "gif"
+        "webp"
     ]
 
     targets = [
