@@ -10,7 +10,7 @@ TODO
 TODO formulas
   vlc, wireshark, ffmpeg, libav
 
-  Compression and archive formats: gzip, bzip2, xz, lzo, tar, zip
+  Compression and archive formats: gzip, lzo, tar, zip
   Non-web images: jp2, jbig, tiff
   Audio and video: vorbis, mp3, aac, h264, theora, webm
   Miscellaneous tools & libraries: file, lcms, libxml

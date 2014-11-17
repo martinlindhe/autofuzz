@@ -1,9 +1,9 @@
 # STATUS borked
 
-class libwebp:
+class tcpdump:
     name = __name__
     home = "http://www.tcpdump.org/"
-    scmOrigin = "git clone git://bpf.tcpdump.org/tcpdump"
+    scmOrigin = "git clone https://github.com/the-tcpdump-group/tcpdump.git"
     dataTypes = [
         "xxx"
     ]
@@ -17,7 +17,6 @@ class libwebp:
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "xxx",
         "make"
     ]

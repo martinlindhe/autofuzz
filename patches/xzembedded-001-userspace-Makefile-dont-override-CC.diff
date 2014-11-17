@@ -1,0 +1,17 @@
+diff --git a/userspace/Makefile b/userspace/Makefile
+index 5bd6b28..00d2e7e 100644
+--- a/userspace/Makefile
++++ b/userspace/Makefile
+@@ -7,11 +7,10 @@
+ # You can do whatever you want with this file.
+ #
+ 
+-CC = gcc -std=gnu89
+ BCJ_CPPFLAGS = -DXZ_DEC_X86 -DXZ_DEC_POWERPC -DXZ_DEC_IA64 \
+ 		-DXZ_DEC_ARM -DXZ_DEC_ARMTHUMB -DXZ_DEC_SPARC
+ CPPFLAGS = -DXZ_USE_CRC64 -DXZ_DEC_ANY_CHECK
+-CFLAGS = -ggdb3 -O2 -pedantic -Wall -Wextra
++CFLAGS = -std=gnu89 -ggdb3 -O2 -pedantic -Wall -Wextra
+ RM = rm -f
+ VPATH = ../linux/include/linux ../linux/lib/xz
+ COMMON_SRCS = xz_crc32.c xz_crc64.c xz_dec_stream.c xz_dec_lzma2.c xz_dec_bcj.c
