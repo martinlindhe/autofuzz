@@ -108,6 +108,8 @@ elif dataType == "png":
     aflInDir = rootDir + "/testcases/images/png"
 elif dataType == "webp":
     aflInDir = rootDir + "/testcases/images/webp"
+elif dataType == "deflate":
+    aflInDir = rootDir + "/testcases/archives/deflate"
 else:
    print("ERROR: unknown data type: " + dataType)
    sys.exit()
