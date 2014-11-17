@@ -1,4 +1,4 @@
-# STATUS builds, but missing input data for fuzzer
+# STATUS works, but is very slow (7/sec)
 
 class cppcheck:
     name = __name__

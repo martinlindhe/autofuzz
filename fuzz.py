@@ -125,4 +125,4 @@ aflFuzzParam = formula.aflFuzzParam  ## xxx faillback to empty string if unset (
 fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzParam + " " + aflFuzzTarget + " " + aflFuzzTargetParam
 
 print("FUZZ # " + fuzzCmd)
-#passthru_command(fuzzCmd)
+passthru_command(fuzzCmd)
