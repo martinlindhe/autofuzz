@@ -112,6 +112,8 @@ elif dataType == "deflate":
     aflInDir = rootDir + "/testcases/archives/deflate"
 elif dataType == "xz":
     aflInDir = rootDir + "/testcases/archives/xz"
+elif dataType == "c":
+    aflInDir = rootDir + "/testcases/others/c"
 else:
    print("ERROR: unknown data type: " + dataType)
    sys.exit()
@@ -123,4 +125,4 @@ aflFuzzParam = formula.aflFuzzParam  ## xxx faillback to empty string if unset (
 fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzParam + " " + aflFuzzTarget + " " + aflFuzzTargetParam
 
 print("FUZZ # " + fuzzCmd)
-passthru_command(fuzzCmd)
+#passthru_command(fuzzCmd)
