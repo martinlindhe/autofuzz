@@ -1,6 +1,6 @@
-# STATUS builds, xxx need sample & target binary
+# STATUS builds, untested need sample
 
-class theora:
+class speex:
     name = __name__
     home = "http://www.speex.org/"
     scmOrigin = "git clone http://git.xiph.org/speex.git"
@@ -8,7 +8,7 @@ class theora:
         "speex"
     ]
 
-    target = "xxx"
+    target = "src/speexdec"
     targetParam = ""
     aflFuzzParam = ""
 
@@ -18,6 +18,6 @@ class theora:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc ./configure --disable-shared --enable-binaries",
         "make"
     ]
