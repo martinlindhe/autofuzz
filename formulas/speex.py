@@ -1,17 +1,15 @@
 # STATUS builds, xxx need sample & target binary
 
-# XXX theres no binary usable for fuzzing
-
-class libogg:
+class theora:
     name = __name__
-    home = "http://xiph.org/ogg/"
-    scmOrigin = "git clone https://git.xiph.org/mirrors/ogg.git"
+    home = "http://www.speex.org/"
+    scmOrigin = "git clone http://git.xiph.org/speex.git"
     dataTypes = [
-        "ogg"
+        "speex"
     ]
 
     target = "xxx"
-    targetParam = "-d"
+    targetParam = ""
     aflFuzzParam = ""
 
     clean = [
