@@ -1,4 +1,4 @@
-# STATUS formula works, but binary crashes afl 0.48b (reported) - need afl-fuzz "-f test.png" param for this!
+# STATUS works
 
 class lodepng:
     name = __name__
@@ -10,6 +10,7 @@ class lodepng:
 
     target = "example_decode"
     targetParam = ""
+    aflFuzzParam = "-f test.png"
 
     clean = [
         "rm -f example_decode"

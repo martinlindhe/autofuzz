@@ -1,4 +1,4 @@
-# STATUS: incomplete
+# STATUS: builds, but dont build readpng
 
 class libpng:
     name = __name__
@@ -10,6 +10,7 @@ class libpng:
 
     target = "readpng"
     targetParam = ""
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"
@@ -18,5 +19,6 @@ class libpng:
     build = [
         "./autogen.sh",
         "CC=afl-gcc ./configure --disable-shared",
-        "make"
+        "make",
+        "make contrib/libtests/readpng"   # XXX not enough
     ]

@@ -6,11 +6,12 @@ class ijgjpeg:
     # TODO stable: http://www.ijg.org/files/jpegsrc.v9a.tar.gz
     scmOrigin = ""
     dataTypes = [
-        "jpg"
+        "jpeg"
     ]
 
     target = "djpeg"
     targetParam = ""
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"

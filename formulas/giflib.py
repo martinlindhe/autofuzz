@@ -1,3 +1,4 @@
+# STATUS works
 
 class giflib:
     name = __name__
@@ -9,6 +10,7 @@ class giflib:
 
     target = "util/giftext"
     targetParam = ""
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"

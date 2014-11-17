@@ -40,7 +40,6 @@ rootDir = os.path.dirname(os.path.realpath(__file__))
 if not os.path.isdir(rootDir + "/.fuzz-afl"):
     os.mkdir(rootDir + "/.fuzz-afl")
 
-# TODO take 1 parameter, formula name
 if len(sys.argv) < 2:
     print("ERROR: supply formula name")
     sys.exit()
@@ -59,7 +58,7 @@ formulaPath = ".cache/" + formulaName
 
 # TODO remove assumption of git repository, need svn support, etc
 gitPath = formulaPath + "/.git"
-svnPath = formulaPath + ".svn"
+svnPath = formulaPath + "/.svn"
 if os.path.isdir(gitPath) or os.path.isdir(svnPath):
     # TODO if dir exist, do a "git pull" ? also make sure it is pristine
     print("Checkout found at " + gitPath + " or " + svnPath + ", TODO do update?")
@@ -71,7 +70,6 @@ else:
 
 # set current working dir to formulaPath
 os.chdir(formulaPath)
-# print("changed cwd to " + os.getcwd())
 
 fuzzTarget = formula.target
 
@@ -99,11 +97,26 @@ while True:
         break
     outCounter += 1
 
+
+# XXX dataTypes, move to function
+dataType = formula.dataTypes[0]   # XXX care of the rest of the array???
+if dataType == "gif":
+    aflInDir = rootDir + "/testcases/images/gif"
+elif dataType == "jpeg":
+    aflInDir = rootDir + "/testcases/images/jpeg"
+elif dataType == "png":
+    aflInDir = rootDir + "/testcases/images/png"
+elif dataType == "webp":
+    aflInDir = rootDir + "/testcases/images/webp"
+else:
+   print("ERROR: unknown data type: " + dataType)
+   sys.exit()
+
 # TODO prepare test cases from dataTypes list
-aflInDir = rootDir + "/testcases/images/gif"
 aflFuzzTarget = rootDir + "/" + formulaPath + "/" + fuzzTarget
 aflFuzzTargetParam = formula.targetParam
-fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzTarget + " " + aflFuzzTargetParam
+aflFuzzParam = formula.aflFuzzParam  ## xxx faillback to empty string if unset (?) or rather, extend formulas from base formula?
+fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzParam + " " + aflFuzzTarget + " " + aflFuzzTargetParam
 
 print("FUZZ # " + fuzzCmd)
 passthru_command(fuzzCmd)

@@ -10,6 +10,7 @@ class libwebp:
 
     target = "xxx"
     targetParam = ""
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"

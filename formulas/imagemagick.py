@@ -11,6 +11,7 @@ class imagemagick:
 
     target = "xxx"
     targetParam = ""
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"

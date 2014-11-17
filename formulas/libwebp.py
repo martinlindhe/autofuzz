@@ -1,4 +1,4 @@
-# STATUS runs, but needs to supply a webp test case for better fuzzing!
+# STATUS works
 
 class libwebp:
     name = __name__
@@ -10,6 +10,7 @@ class libwebp:
 
     target = "examples/dwebp"
     targetParam = "-- -"
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"
