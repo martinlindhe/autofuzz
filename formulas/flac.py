@@ -1,4 +1,6 @@
-# STATUS xxx
+# STATUS builds
+
+# NOTE flac binary uses shared libs even tho --disable-shared was used!?
 
 class flac:
     name = __name__
@@ -8,7 +10,7 @@ class flac:
         "flac"
     ]
 
-    target = "xxx"
+    target = "src/flac/flac"
     targetParam = "-d"
     aflFuzzParam = ""
 
@@ -18,6 +20,6 @@ class flac:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc CXX=afl-g++ ./configure --disable-shared",
         "make"
     ]
