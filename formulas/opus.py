@@ -1,4 +1,7 @@
-# STATUS builds, need opus sample
+# STATUS builds, need good sample?
+
+# XXX errorr with sample, Invalid payload length: 1332176723
+# NOTE trying opustools instead
 
 class opus:
     name = __name__
@@ -9,8 +12,8 @@ class opus:
     ]
 
     target = "opus_demo"
-    targetParam = "-d"
-    aflFuzzParam = ""
+    targetParam = "-d 8000 1 in.opus test.raw-from-opus"
+    aflFuzzParam = "-f in.opus"
 
     clean = [
         "make distclean"

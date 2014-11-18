@@ -1,4 +1,4 @@
-# STATUS builds, xxx need sample & target binary
+# STATUS xxx
 
 class flac:
     name = __name__

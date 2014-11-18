@@ -1,6 +1,6 @@
 # STATUS borked
 
-class imagemagick:
+class freetype2:
     name = __name__
     home = "http://www.freetype.org/"
     scmOrigin = "git clone git://git.sv.nongnu.org/freetype/freetype2.git"

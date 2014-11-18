@@ -112,6 +112,8 @@ elif dataType == "deflate":
     aflInDir = rootDir + "/testcases/archives/deflate"
 elif dataType == "xz":
     aflInDir = rootDir + "/testcases/archives/xz"
+elif dataType == "opus":
+    aflInDir = rootDir + "/testcases/audio/opus"
 elif dataType == "c":
     aflInDir = rootDir + "/testcases/others/c"
 else:
