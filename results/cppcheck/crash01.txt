@@ -1,0 +1,4 @@
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000737e5c in Variable::typeStartToken (this=0x0) at lib/symboldatabase.h:203
+203	        return _start;
+
