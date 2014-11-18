@@ -1,11 +1,16 @@
-# STATUS builds, but needs patch to run with instrumentation
+# STATUS works
 
-# BUG userspace/Makefile directly specifies gcc, patch sent 2014-11-17
+# status when 1st run was stopped:
+#         run time : 1 days, 2 hrs, 17 min, 57 sec        cycles done : 778
+#    last new path : 1 days, 1 hrs, 25 min, 32 sec        total paths : 32
+#  last uniq crash : none seen yet                       uniq crashes : 0
+#   last uniq hang : none seen yet                         uniq hangs : 0
+
 
 class xzembedded:
     name = __name__
     home = "http://tukaani.org/xz/"
-    scmOrigin = "git clone http://git.tukaani.org/xz-embedded.git; patch -Np1 < patches/xzembedded-001-userspace-Makefile-dont-override-CC.diff"   # XXX verify apply patch works
+    scmOrigin = "git clone http://git.tukaani.org/xz-embedded.git"
     dataTypes = [
         "xz"
     ]
@@ -19,5 +24,5 @@ class xzembedded:
     ]
 
     build = [
-        "cd userspace; CC=afl-gcc make"
+        "cd userspace; make CC=afl-gcc"
     ]
