@@ -1,4 +1,6 @@
-# STATUS builds, xxx need sample & target binary
+# STATUS builds
+
+# XXX need sample & target binary
 
 class theora:
     name = __name__
@@ -9,7 +11,7 @@ class theora:
     ]
 
     target = "examples/dump_video"     # XXX not sure its a fuzzable target
-    targetParam = "-d"
+    targetParam = ""
     aflFuzzParam = ""
 
     clean = [
@@ -17,7 +19,6 @@ class theora:
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc ./autogen.sh --disable-shared",
         "make"
     ]

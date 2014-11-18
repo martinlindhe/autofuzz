@@ -1,14 +1,18 @@
-# STATUS borked
+# STATUS builds
+
+# NOTE uses system libpcap-dev
+
+# XXXX how to fuzz using pcap file?!?!?!
 
 class tcpdump:
     name = __name__
     home = "http://www.tcpdump.org/"
     scmOrigin = "git clone https://github.com/the-tcpdump-group/tcpdump.git"
     dataTypes = [
-        "xxx"
+        "pcap"
     ]
 
-    target = "xxx"
+    target = "tcpdump"
     targetParam = ""
     aflFuzzParam = ""
 
@@ -17,6 +21,6 @@ class tcpdump:
     ]
 
     build = [
-        "xxx",
+        "CC=afl-gcc ./configure --disable-shared",
         "make"
     ]

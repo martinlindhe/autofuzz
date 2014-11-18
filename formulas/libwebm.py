@@ -1,4 +1,6 @@
-# STATUS borked
+# STATUS builds
+
+# XXX need sample, and dont know how to test it...
 
 class libwebm:
     name = __name__
@@ -13,11 +15,9 @@ class libwebm:
     aflFuzzParam = ""
 
     clean = [
-        "make distclean"
+        "make clean"
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
-        "make"
+        "make CXX=afl-g++"
     ]

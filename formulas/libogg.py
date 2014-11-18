@@ -1,6 +1,6 @@
-# STATUS builds, xxx need sample & target binary
+# STATUS builds
 
-# XXX theres no binary usable for fuzzing
+# XXX need sample & target binary
 
 class libogg:
     name = __name__
@@ -10,8 +10,8 @@ class libogg:
         "ogg"
     ]
 
-    target = "xxx"
-    targetParam = "-d"
+    target = "src/test_bitwise"   # XXX dont know if it works
+    targetParam = ""
     aflFuzzParam = ""
 
     clean = [
@@ -19,7 +19,6 @@ class libogg:
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc ./autogen.sh --disable-shared",
         "make"
     ]

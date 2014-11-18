@@ -1,4 +1,6 @@
-# STATUS borked
+# STATUS builds
+
+# XXX need sample
 
 class libvpx:
     name = __name__
@@ -8,7 +10,7 @@ class libvpx:
         "xxx"
     ]
 
-    target = "xxx"
+    target = "vpxdec"
     targetParam = ""
     aflFuzzParam = ""
 
@@ -17,7 +19,6 @@ class libvpx:
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc CXX=afl-g++ ./configure --disable-shared",
         "make"
     ]

@@ -1,14 +1,14 @@
-# STATUS xxx
+# STATUS runs
 
 class vorbis:
     name = __name__
     home = "http://wwwxxxxxx"
     scmOrigin = "https://git.xiph.org/mirrors/vorbis.git"
     dataTypes = [
-        "theora"
+        "vorbis"
     ]
 
-    target = "xxx"
+    target = "examples/decoder_example"
     targetParam = ""
     aflFuzzParam = ""
 
@@ -17,7 +17,7 @@ class vorbis:
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
-        "make"
+        "CC=afl-gcc ./autogen.sh --disable-shared",
+        "make",
+        "cd examples; make"
     ]
