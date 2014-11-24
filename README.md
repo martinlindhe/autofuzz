@@ -1,4 +1,4 @@
-== autofuzz
+## autofuzz
 
 This project aims to help people get started with fuzzing.
 
