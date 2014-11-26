@@ -1,4 +1,4 @@
-# STATUS xxx
+# STATUS runs
 
 class libxml2:
     name = __name__
@@ -8,16 +8,15 @@ class libxml2:
         "xml"
     ]
 
-    target = "XXX"
-    targetParam = ""
-    aflFuzzParam = ""
+    target = "testReader"
+    targetParam = "test.xml"
+    aflFuzzParam = "-f test.xml"
 
     clean = [
         "make distclean"
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc ./autogen.sh --disable-shared",
         "make"
     ]
