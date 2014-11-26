@@ -22,4 +22,4 @@ if not probe.IsSupported():
 # TODO make sure afl-gcc 0.45b or newer is installed (in path) and see if its 32 or 64bit build
 
 
-# TODO make sure "git" command is available
+# TODO make sure "git, svn and cvs" command is available
