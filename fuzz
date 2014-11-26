@@ -120,6 +120,8 @@ elif dataType == "flac":
     aflInDir = rootDir + "/testcases/audio/flac"
 elif dataType == "c":
     aflInDir = rootDir + "/testcases/others/c"
+elif dataType == "xml":
+    aflInDir = rootDir + "/testcases/others/xml"
 elif dataType == "pcap":
     aflInDir = rootDir + "/testcases/others/pcap"
 else:
