@@ -1,11 +1,10 @@
-# STATUS works
+# STATUS runs
 
-# status when 1st run was stopped:
-#         run time : 1 days, 2 hrs, 17 min, 57 sec        cycles done : 778
-#    last new path : 1 days, 1 hrs, 25 min, 32 sec        total paths : 32
-#  last uniq crash : none seen yet                       uniq crashes : 0
-#   last uniq hang : none seen yet                         uniq hangs : 0
-
+# Nov 2014 - no problems found:
+#        run time : 8 days, 3 hrs, 52 min, 41 sec        cycles done : 3087
+#   last new path : 5 days, 22 hrs, 29 min, 25 sec       total paths : 33
+# last uniq crash : none seen yet                       uniq crashes : 0
+#  last uniq hang : none seen yet                         uniq hangs : 0
 
 class xzembedded:
     name = __name__
