@@ -1,6 +1,6 @@
 # STATUS builds
 
-# XXX need sample & target binary
+# XXX need a target binary, the supplied ones is useless
 
 class libogg:
     name = __name__
@@ -10,7 +10,7 @@ class libogg:
         "ogg"
     ]
 
-    target = "src/test_bitwise"   # XXX dont know if it works
+    target = ""
     targetParam = ""
     aflFuzzParam = ""
 

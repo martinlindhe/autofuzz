@@ -1,6 +1,7 @@
-# STATUS xxx
+# STATUS runs
 
-# XXX osx: ./bootstrap: line 825: autopoint: command not found
+# NOTE: needs --disable-gcc-warnings to build with gcc 4.7.2/Debian
+
 
 class tar:
     name = __name__
@@ -10,8 +11,8 @@ class tar:
         "tar"
     ]
 
-    target = "xxxx"
-    targetParam = ""
+    target = "src/tar"
+    targetParam = "x"
     aflFuzzParam = ""
 
     clean = [
@@ -20,6 +21,6 @@ class tar:
 
     build = [
         "./bootstrap",
-        "CC=afl-gcc ./configure --disable-shared",
+        "./configure CC=afl-gcc --disable-gcc-warnings",
         "make"
     ]

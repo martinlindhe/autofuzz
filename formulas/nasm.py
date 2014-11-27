@@ -1,4 +1,4 @@
-# STATUS builds, need sample
+# STATUS runs
 
 
 class nasm:
@@ -6,12 +6,12 @@ class nasm:
     home = "http://www.nasm.us/"
     scmOrigin = "git clone git://repo.or.cz/nasm.git"
     dataTypes = [
-        "xxx"
+        "txt"
     ]
 
     target = "ndisasm"  # XXX also nasm target exists
-    targetParam = ""
-    aflFuzzParam = ""
+    targetParam = "test.asm"
+    aflFuzzParam = "-f test.asm"
 
     clean = [
         "make distclean"

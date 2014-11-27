@@ -1,6 +1,4 @@
-# STATUS xxx
-
-# dont compile on osx
+# STATUS borked
 
 
 class poppler:
@@ -20,7 +18,6 @@ class poppler:
     ]
 
     build = [
-        "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC=afl-gcc CXX=afl-g++ ./autogen.sh --disable-shared",
         "make"
     ]

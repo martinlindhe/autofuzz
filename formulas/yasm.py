@@ -1,4 +1,4 @@
-# STATUS builds, need input files
+# STATUS runs
 
 
 class yasm:
@@ -6,12 +6,12 @@ class yasm:
     home = "http://yasm.tortall.net/"
     scmOrigin = "git clone https://github.com/yasm/yasm.git"
     dataTypes = [
-        "xxx"
+        "txt"
     ]
 
     target = "yasm"
-    targetParam = ""
-    aflFuzzParam = ""
+    targetParam = "test.asm"
+    aflFuzzParam = "-f test.asm"
 
     clean = [
         "make distclean"
