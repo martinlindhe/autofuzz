@@ -1,4 +1,6 @@
-# STATUS works, but is very slow (7/sec)
+# STATUS runs
+
+# NOTE is very slow (7/sec)
 
 # Nov 2014 - no problems found:
 #         run time : 8 days, 3 hrs, 55 min, 58 sec        cycles done : 0

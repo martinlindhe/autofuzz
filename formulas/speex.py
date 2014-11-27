@@ -1,4 +1,7 @@
-# STATUS builds, untested need sample
+# STATUS runs
+
+
+# NOTE: uses system libogg-dev
 
 class speex:
     name = __name__
@@ -9,7 +12,7 @@ class speex:
     ]
 
     target = "src/speexdec"
-    targetParam = ""
+    targetParam = "-"   # stdin
     aflFuzzParam = ""
 
     clean = [

@@ -1,13 +1,11 @@
-# STATUS xxx
+# STATUS borked, problems with the cvs checkout
 
-# TODO cvs repository, 26 nov 2014
-# cvs -d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif login
-# cvs -z3 -d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif co -P libexif
 
 class libexif:
     name = __name__
     home = "http://libexif.sourceforge.net/"
-    scmOrigin = "xxx"
+    scmOrigin = "cvs -d :pserver:anonymous:@libexif.cvs.sourceforge.net:/cvsroot/libexif login && cvs -z3 -d :pserver:anonymous:@libexif.cvs.sourceforge.net:/cvsroot/libexif co -d {destination} -P libexif"
+
     dataTypes = [
         "xxx"
     ]

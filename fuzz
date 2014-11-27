@@ -109,12 +109,16 @@ elif dataType == "png":
     aflInDir = rootDir + "/testcases/images/png"
 elif dataType == "webp":
     aflInDir = rootDir + "/testcases/images/webp"
+elif dataType == "tiff":
+    aflInDir = rootDir + "/testcases/images/tiff"
 elif dataType == "deflate":
     aflInDir = rootDir + "/testcases/archives/deflate"
 elif dataType == "xz":
     aflInDir = rootDir + "/testcases/archives/xz"
 elif dataType == "tar":
     aflInDir = rootDir + "/testcases/archives/tar"
+elif dataType == "speex":
+    aflInDir = rootDir + "/testcases/audio/speex"
 elif dataType == "opus":
     aflInDir = rootDir + "/testcases/audio/opus"
 elif dataType == "vorbis":
