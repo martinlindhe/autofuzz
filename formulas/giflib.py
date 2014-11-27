@@ -10,7 +10,7 @@
 class giflib:
     name = __name__
     home = "http://giflib.sourceforge.net/"
-    scmOrigin = "git clone git://git.code.sf.net/p/giflib/code"
+    scmOrigin = "git clone git://git.code.sf.net/p/giflib/code {destination}"
     dataTypes = [
         "gif"
     ]

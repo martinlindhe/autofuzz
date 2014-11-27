@@ -4,7 +4,7 @@
 class nasm:
     name = __name__
     home = "http://www.nasm.us/"
-    scmOrigin = "git clone git://repo.or.cz/nasm.git"
+    scmOrigin = "git clone git://repo.or.cz/nasm.git {destination}"
     dataTypes = [
         "txt"
     ]

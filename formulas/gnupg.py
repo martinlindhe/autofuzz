@@ -5,7 +5,7 @@
 class gnupg:
     name = __name__
     home = "https://gnupg.org/"
-    scmOrigin = "git clone git://git.gnupg.org/gnupg.git"
+    scmOrigin = "git clone git://git.gnupg.org/gnupg.git {destination}"
     dataTypes = [
         "xxx"
     ]

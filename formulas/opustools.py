@@ -11,7 +11,7 @@
 class opustools:
     name = __name__
     home = "http://opus-codec.org/"
-    scmOrigin = "git clone git://git.opus-codec.org/opus-tools.git"
+    scmOrigin = "git clone git://git.opus-codec.org/opus-tools.git {destination}"
     dataTypes = [
         "opus"
     ]

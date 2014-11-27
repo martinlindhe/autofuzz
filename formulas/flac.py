@@ -14,7 +14,7 @@
 class flac:
     name = __name__
     home = "http://xiph.org/flac/"
-    scmOrigin = "git clone https://git.xiph.org/flac.git"
+    scmOrigin = "git clone https://git.xiph.org/flac.git {destination}"
     dataTypes = [
         "flac"
     ]

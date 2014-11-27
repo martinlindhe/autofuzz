@@ -9,7 +9,7 @@
 class vorbis:
     name = __name__
     home = "http://wwwxxxxxx"
-    scmOrigin = "https://git.xiph.org/mirrors/vorbis.git"
+    scmOrigin = "https://git.xiph.org/mirrors/vorbis.git {destination}"
     dataTypes = [
         "vorbis"
     ]

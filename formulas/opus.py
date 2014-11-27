@@ -6,7 +6,7 @@
 class opus:
     name = __name__
     home = "http://opus-codec.org/"
-    scmOrigin = "git clone git://git.opus-codec.org/opus.git"
+    scmOrigin = "git clone git://git.opus-codec.org/opus.git {destination}"
     dataTypes = [
         "opus"
     ]

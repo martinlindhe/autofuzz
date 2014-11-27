@@ -5,7 +5,7 @@
 class theora:
     name = __name__
     home = "http://www.theora.org/"
-    scmOrigin = "https://git.xiph.org/mirrors/theora.git"
+    scmOrigin = "https://git.xiph.org/mirrors/theora.git {destination}"
     dataTypes = [
         "theora"
     ]

@@ -7,7 +7,7 @@
 class tcpdump:
     name = __name__
     home = "http://www.tcpdump.org/"
-    scmOrigin = "git clone https://github.com/the-tcpdump-group/tcpdump.git"
+    scmOrigin = "git clone https://github.com/the-tcpdump-group/tcpdump.git {destination}"
     dataTypes = [
         "pcap"
     ]

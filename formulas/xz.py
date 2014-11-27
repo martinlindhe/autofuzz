@@ -10,7 +10,7 @@
 class xz:
     name = __name__
     home = "http://tukaani.org/xz/"
-    scmOrigin = "git clone http://git.tukaani.org/xz.git"
+    scmOrigin = "git clone http://git.tukaani.org/xz.git {destination}"
     dataTypes = [
         "xz"
     ]

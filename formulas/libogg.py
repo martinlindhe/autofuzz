@@ -5,7 +5,7 @@
 class libogg:
     name = __name__
     home = "http://xiph.org/ogg/"
-    scmOrigin = "git clone https://git.xiph.org/mirrors/ogg.git"
+    scmOrigin = "git clone https://git.xiph.org/mirrors/ogg.git {destination}"
     dataTypes = [
         "ogg"
     ]

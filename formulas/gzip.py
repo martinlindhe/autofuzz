@@ -4,7 +4,7 @@ class gzip:
     name = __name__
     home = "http://www.gzip.org/"
 
-    scmOrigin = "git clone http://git.savannah.gnu.org/r/gzip.git"
+    scmOrigin = "git clone http://git.savannah.gnu.org/r/gzip.git {destination}"
     dataTypes = [
         "gz"
     ]

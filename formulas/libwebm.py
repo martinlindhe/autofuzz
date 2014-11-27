@@ -5,7 +5,7 @@
 class libwebm:
     name = __name__
     home = "http://www.webmproject.org/code/"
-    scmOrigin = "git clone https://chromium.googlesource.com/webm/libwebm"
+    scmOrigin = "git clone https://chromium.googlesource.com/webm/libwebm {destination}"
     dataTypes = [
         "xxx"
     ]

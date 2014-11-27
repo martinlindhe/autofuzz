@@ -6,7 +6,7 @@
 class tar:
     name = __name__
     home = "https://www.gnu.org/software/tar/"
-    scmOrigin = "git clone git://git.savannah.gnu.org/tar.git"
+    scmOrigin = "git clone git://git.savannah.gnu.org/tar.git {destination}"
     dataTypes = [
         "tar"
     ]

@@ -10,7 +10,7 @@
 class lodepng:
     name = __name__
     home = "http://lodev.org/lodepng/"
-    scmOrigin = "git clone https://github.com/lvandeve/lodepng"
+    scmOrigin = "git clone https://github.com/lvandeve/lodepng {destination}"
     dataTypes = [
         "png"
     ]

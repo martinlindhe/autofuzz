@@ -5,7 +5,7 @@
 class gettext:
     name = __name__
     home = "https://www.gnu.org/software/gettext/"
-    scmOrigin = "git clone git://git.savannah.gnu.org/gettext.git"
+    scmOrigin = "git clone git://git.savannah.gnu.org/gettext.git {destination}"
     dataTypes = [
         "xxx"
     ]

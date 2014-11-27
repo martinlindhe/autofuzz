@@ -3,7 +3,7 @@
 class libpng:
     name = __name__
     home = "http://www.libpng.org/pub/png/libpng.html"
-    scmOrigin = "git clone git://git.code.sf.net/p/libpng/code"
+    scmOrigin = "git clone git://git.code.sf.net/p/libpng/code {destination}"
     dataTypes = [
         "png"
     ]

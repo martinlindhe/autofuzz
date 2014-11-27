@@ -3,7 +3,7 @@
 class rtmpdump:
     name = __name__
     home = "https://rtmpdump.mplayerhq.hu/"
-    scmOrigin = "git clone git://git.ffmpeg.org/rtmpdump"
+    scmOrigin = "git clone git://git.ffmpeg.org/rtmpdump {destination}"
     dataTypes = [
         "xxx"
     ]

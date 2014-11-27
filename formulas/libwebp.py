@@ -9,7 +9,7 @@
 class libwebp:
     name = __name__
     home = "https://developers.google.com/speed/webp/"
-    scmOrigin = "git clone https://chromium.googlesource.com/webm/libwebp"
+    scmOrigin = "git clone https://chromium.googlesource.com/webm/libwebp {destination}"
     dataTypes = [
         "webp"
     ]

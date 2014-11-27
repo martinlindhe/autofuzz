@@ -64,9 +64,9 @@ if os.path.isdir(gitPath) or os.path.isdir(svnPath) or os.path.isdir(cvsPath):
     # TODO if dir exist, do a "git pull" ? also make sure it is pristine
     print("Checkout found at " + gitPath + " or " + svnPath + " or " + cvsPath + ", TODO do update?")
 else:
-    print("### CHECKOUT " + formula.scmOrigin + " ...")
 
-    getScm = formula.scmOrigin + " .cache/" + formulaName
+    getScm = formula.scmOrigin.replace("{destination}", ".cache/" + formulaName)
+    print("### CHECKOUT " + getScm)
     passthru_command(getScm)
 
 # set current working dir to formulaPath

@@ -5,7 +5,7 @@
 class elfutils:
     name = __name__
     home = "https://fedorahosted.org/elfutils/"
-    scmOrigin = "git clone git://git.fedorahosted.org/git/elfutils.git"
+    scmOrigin = "git clone git://git.fedorahosted.org/git/elfutils.git {destination}"
     dataTypes = [
         "xxx"
     ]

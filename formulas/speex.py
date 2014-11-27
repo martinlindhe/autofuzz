@@ -3,7 +3,7 @@
 class speex:
     name = __name__
     home = "http://www.speex.org/"
-    scmOrigin = "git clone http://git.xiph.org/speex.git"
+    scmOrigin = "git clone http://git.xiph.org/speex.git {destination}"
     dataTypes = [
         "speex"
     ]

@@ -4,7 +4,7 @@
 class yasm:
     name = __name__
     home = "http://yasm.tortall.net/"
-    scmOrigin = "git clone https://github.com/yasm/yasm.git"
+    scmOrigin = "git clone https://github.com/yasm/yasm.git {destination}"
     dataTypes = [
         "txt"
     ]

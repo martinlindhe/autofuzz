@@ -9,7 +9,7 @@
 class xzembedded:
     name = __name__
     home = "http://tukaani.org/xz/"
-    scmOrigin = "git clone http://git.tukaani.org/xz-embedded.git"
+    scmOrigin = "git clone http://git.tukaani.org/xz-embedded.git {destination}"
     dataTypes = [
         "xz"
     ]

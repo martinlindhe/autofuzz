@@ -11,7 +11,7 @@
 class zlib:
     name = __name__
     home = "http://www.zlib.net/"
-    scmOrigin = "git clone https://github.com/madler/zlib"
+    scmOrigin = "git clone https://github.com/madler/zlib {destination}"
     dataTypes = [
         "deflate"
     ]

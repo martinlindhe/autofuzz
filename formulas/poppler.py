@@ -4,7 +4,7 @@
 class poppler:
     name = __name__
     home = "http://poppler.freedesktop.org/"
-    scmOrigin = "git clone git://git.freedesktop.org/git/poppler/poppler"
+    scmOrigin = "git clone git://git.freedesktop.org/git/poppler/poppler {destination}"
     dataTypes = [
         "pdf"
     ]

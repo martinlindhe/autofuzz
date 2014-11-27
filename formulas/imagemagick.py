@@ -3,7 +3,7 @@
 class imagemagick:
     name = __name__
     home = "http://www.imagemagick.org/"
-    scmOrigin = "svn co https://subversion.imagemagick.org/subversion/ImageMagick/trunk/"
+    scmOrigin = "svn co https://subversion.imagemagick.org/subversion/ImageMagick/trunk/ {destination}"
     dataTypes = [
         "bmp", "ico"  # XXX care of mutliple types
     ]

@@ -9,7 +9,7 @@
 class libjpegturbo:
     name = "libjpeg-turbo"
     home = "http://libjpeg-turbo.virtualgl.org/"
-    scmOrigin = "svn checkout svn://svn.code.sf.net/p/libjpeg-turbo/code/trunk"
+    scmOrigin = "svn checkout svn://svn.code.sf.net/p/libjpeg-turbo/code/trunk {destination}"
     dataTypes = [
         "jpeg"
     ]

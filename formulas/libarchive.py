@@ -3,7 +3,7 @@
 class libarchive:
     name = __name__
     home = "http://libarchive.org/"
-    scmOrigin = "git clone https://github.com/libarchive/libarchive"
+    scmOrigin = "git clone https://github.com/libarchive/libarchive {destination}"
     dataTypes = [
         "deflate"  # XXXX
     ]

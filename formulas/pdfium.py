@@ -13,7 +13,7 @@
 #$ svn co http://v8.googlecode.com/svn/trunk v8
 #$ svn co https://src.chromium.org/chrome/trunk/deps/third_party/icu46 v8/third_party/icu
 #$ build/gyp_pdfium
-#$ make 
+#$ make
 #$ make BUILDTYPE=Release
 
 # from : https://code.google.com/p/pdfium/wiki/Build
@@ -22,7 +22,7 @@
 class pdfium:
     name = __name__
     home = "https://code.google.com/p/pdfium/"
-    scmOrigin = "git clone https://pdfium.googlesource.com/pdfium"
+    scmOrigin = "git clone https://pdfium.googlesource.com/pdfium {destination}"
     dataTypes = [
         "pdf"
     ]
