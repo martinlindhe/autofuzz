@@ -12,3 +12,8 @@ and start fuzzing using a supplied xz sample (see "testcases" folder).
 
 It is currently built around american-fuzzy-lop, with the intention of expanding
 to include other fuzzers.
+
+
+This runs on Debian/amd64, and assumes the following is installed
+
+    sudo apt-get install git cvs automake libtool shtool gettext texinfo bison pkg-config
