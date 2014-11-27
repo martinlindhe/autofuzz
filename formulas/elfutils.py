@@ -7,10 +7,10 @@ class elfutils:
     home = "https://fedorahosted.org/elfutils/"
     scmOrigin = "git clone git://git.fedorahosted.org/git/elfutils.git {destination}"
     dataTypes = [
-        "xxx"
+        "elf"
     ]
 
-    target = "xxx"
+    target = "src/elflint"
     targetParam = ""
     aflFuzzParam = ""
 
@@ -20,6 +20,6 @@ class elfutils:
 
     build = [
         "autoreconf -fiv",
-        "CC=afl-gcc ./configure",
+        "CC=afl-gcc ./configure --enable-maintainer-mode",
         "make"
     ]

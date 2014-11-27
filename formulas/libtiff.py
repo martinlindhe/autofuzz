@@ -19,6 +19,6 @@ class libtiff:
 
     build = [
         "./autogen.sh",
-        "./configure CC=afl-gcc --disable-shared",
+        "./configure CC=afl-gcc CXX=afl-g++ --disable-shared",
         "make"
     ]

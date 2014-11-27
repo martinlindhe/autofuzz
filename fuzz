@@ -111,6 +111,8 @@ elif dataType == "webp":
     aflInDir = rootDir + "/testcases/images/webp"
 elif dataType == "tiff":
     aflInDir = rootDir + "/testcases/images/tiff"
+elif dataType == "ttf":
+    aflInDir = rootDir + "/testcases/fonts/ttf"
 elif dataType == "deflate":
     aflInDir = rootDir + "/testcases/archives/deflate"
 elif dataType == "xz":
@@ -127,6 +129,8 @@ elif dataType == "ogg":  # container format
     aflInDir = rootDir + "/testcases/audio/vorbis"
 elif dataType == "flac":
     aflInDir = rootDir + "/testcases/audio/flac"
+elif dataType == "elf":
+    aflInDir = rootDir + "/testcases/executables/elf"
 elif dataType == "c":
     aflInDir = rootDir + "/testcases/others/c"
 elif dataType == "xml":

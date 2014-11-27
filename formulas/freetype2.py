@@ -1,12 +1,14 @@
-# STATUS borked
+# STATUS builds
+
+# TODO fuzzable binaries are in freetype2-demos repository: git clone git://git.sv.nongnu.org/freetype/freetype2-demos.git
+#  XXX the freetype2-demos need X11 display to run
 
 class freetype2:
     name = __name__
     home = "http://www.freetype.org/"
     scmOrigin = "git clone git://git.sv.nongnu.org/freetype/freetype2.git {destination}"
-    # TODO is demos needed? git clone git://git.sv.nongnu.org/freetype/freetype2-demos.git
     dataTypes = [
-        "xxxxxx"
+        "ttf"
     ]
 
     target = "xxx"
