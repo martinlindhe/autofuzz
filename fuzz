@@ -119,6 +119,8 @@ elif dataType == "xz":
     aflInDir = rootDir + "/testcases/archives/xz"
 elif dataType == "tar":
     aflInDir = rootDir + "/testcases/archives/tar"
+elif dataType == "cab":
+    aflInDir = rootDir + "/testcases/archives/cab"
 elif dataType == "speex":
     aflInDir = rootDir + "/testcases/audio/speex"
 elif dataType == "opus":
