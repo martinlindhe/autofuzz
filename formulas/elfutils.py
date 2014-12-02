@@ -1,6 +1,5 @@
-# STATUS xxx
+# STATUS runs
 
-# TODO (on osx): error: __thread support required
 
 class elfutils:
     name = __name__
@@ -11,8 +10,8 @@ class elfutils:
     ]
 
     target = "src/elflint"
-    targetParam = ""
-    aflFuzzParam = ""
+    targetParam = "test.elf"
+    aflFuzzParam = "-f test.elf"
 
     clean = [
         "make distclean"
