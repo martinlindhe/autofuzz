@@ -1,11 +1,10 @@
 # STATUS runs
 
-# Nov 2014:
-#        run time : 8 days, 3 hrs, 15 min, 41 sec        cycles done : 0
-#   last new path : 0 days, 0 hrs, 3 min, 11 sec         total paths : 1237
-# last uniq crash : 0 days, 9 hrs, 51 min, 38 sec       uniq crashes : 251
-#  last uniq hang : 3 days, 15 hrs, 41 min, 19 sec        uniq hangs : 2
-
+# Dec 2014:
+#        run time : 12 days, 21 hrs, 11 min, 33 sec      cycles done : 0
+#   last new path : 0 days, 4 hrs, 51 min, 27 sec        total paths : 1733
+# last uniq crash : none seen yet                       uniq crashes : 0      
+#  last uniq hang : none seen yet                         uniq hangs : 0
 
 class flac:
     name = __name__
@@ -25,6 +24,6 @@ class flac:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc CXX=afl-g++ ./configure --disable-shared",
+        "CC=afl-gcc CXX=afl-g++ ./configure --disable-shared --disable-doxygen-docs",
         "make"
     ]

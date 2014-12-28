@@ -5,9 +5,9 @@
 # NOTE: on Linux, if errror Cannot open /dev/dsp: No such file or directory:
 # sudo modprobe snd-pcm-oss
 
-# Nov 2014:
-#        run time : 4 days, 16 hrs, 6 min, 41 sec        cycles done : 12.6k
-#   last new path : 4 days, 14 hrs, 45 min, 36 sec       total paths : 9
+# Dec 2014 - runs super slow!
+#        run time : 7 days, 7 hrs, 52 min, 54 sec        cycles done : 0
+#   last new path : 5 days, 4 hrs, 34 min, 37 sec        total paths : 14
 # last uniq crash : none seen yet                       uniq crashes : 0
 #  last uniq hang : none seen yet                         uniq hangs : 0
 

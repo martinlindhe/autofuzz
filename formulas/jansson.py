@@ -1,4 +1,4 @@
-# STATUS builds, need test binary & sample
+# STATUS builds, need sample
 
 
 class jansson:
@@ -9,7 +9,7 @@ class jansson:
         "json"
     ]
 
-    target = "xxx"
+    target = "test/bin/json_process"
     targetParam = ""
     aflFuzzParam = ""
 
@@ -19,6 +19,7 @@ class jansson:
 
     build = [
         "autoreconf -i",
-        "./configure CC=afl-gcc",
-        "make"
+        "./configure --disable-shared CC=afl-gcc",
+        "make",
+        "cd test/bin && make json_process",
     ]

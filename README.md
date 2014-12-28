@@ -16,4 +16,4 @@ to include other fuzzers.
 
 This runs on Debian/amd64, and assumes the following is installed
 
-    sudo apt-get install git cvs automake libtool shtool gettext texinfo bison pkg-config
+    sudo apt-get install build-essential module-assistant git cvs automake libtool shtool gettext texinfo bison pkg-config
