@@ -142,13 +142,13 @@ elif dataType == "txt":
 elif dataType == "pcap":
     aflInDir = rootDir + "/testcases/others/pcap"
 else:
-   print("ERROR: unknown data type: " + dataType)
-   sys.exit()
+    print("ERROR: unknown data type: " + dataType)
+    sys.exit()
 
 # TODO prepare test cases from dataTypes list
 aflFuzzTarget = rootDir + "/" + formulaPath + "/" + fuzzTarget
 aflFuzzTargetParam = formula.targetParam
-aflFuzzParam = formula.aflFuzzParam  ## xxx faillback to empty string if unset (?) or rather, extend formulas from base formula?
+aflFuzzParam = formula.aflFuzzParam  # XXX faillback to empty string if unset (?) or rather, extend formulas from base formula?
 fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzParam + " " + aflFuzzTarget + " " + aflFuzzTargetParam
 
 print("FUZZ # " + fuzzCmd)
