@@ -12,12 +12,12 @@ class nasm:
     home = "http://www.nasm.us/"
     scmOrigin = "git clone git://repo.or.cz/nasm.git {destination}"
     dataTypes = [
-        "txt"
+        "elf"
     ]
 
     target = "ndisasm"  # XXX also nasm target exists
-    targetParam = "test.asm"
-    aflFuzzParam = "-f test.asm"
+    targetParam = "-"
+    aflFuzzParam = ""
 
     clean = [
         "make distclean"
