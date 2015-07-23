@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
+# example:  ./triage --dir .fuzz-afl/wladx-0003 --executable .cache/wladx/build/binaries/wla-gb
+
 # NOTE this is similar to afl-0.45b/experimental/crash_triage/triage_crashes.sh
 
 # TODO abort if Q or ESC is pressed
-# TODO own git repo
+
+
+
 
 import os
 import sys
@@ -43,22 +47,22 @@ execFile = args.executable
 
 fileSet = set()
 
-# TODO make sure inDir is a afl dir, expect to find subdir "crashes", "hangs" and "queue"
+
 crashDir = args.dir + "/crashes"
 
-for dir_, _, files in os.walk(crashDir):
-    for fileName in files:
-        # skip files beginning with .
-        if (fileName[0] == "."):
-            continue
+if not os.path.isdir(crashDir):
+    print("ERROR: provided directory is not a afl dir, missing dir " + crashDir)
+    sys.exit()
 
-        if (fileName in ("fuzz_bitmap", "fuzzer_stats", "README.txt")):
-            continue
+for fileName in os.listdir(crashDir):
+    if (fileName[0] == "."):
+        continue
 
-        relDir = os.path.relpath(dir_, crashDir)
-        relFile = os.path.join(relDir, fileName)
-        fileSet.add(relFile)
-        break
+    if (fileName in ("fuzz_bitmap", "fuzzer_stats", "README.txt")):
+        continue
+
+    fileSet.add(crashDir + fileName)
+
 
 # TODO figure out if its a 64bit binary or not
 
@@ -67,9 +71,11 @@ if showStats:
     print("number of files: " + str(len(fileSet)))
     sys.exit()
 
+print("processing files: " + str(len(fileSet)))
+
 for f in fileSet:
     fullFile = crashDir + "/" + f
-    print(fullFile)
+    #print(fullFile)
 
     # XXX: 32bit disasm:   --ex "disass $eip, $eip+16"
     disasm = '--ex "disass \$rip, \$rip+16"'
