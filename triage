@@ -61,10 +61,7 @@ for fileName in os.listdir(crashDir):
     if (fileName in ("fuzz_bitmap", "fuzzer_stats", "README.txt")):
         continue
 
-    fileSet.add(crashDir + fileName)
-
-
-# TODO figure out if its a 64bit binary or not
+    fileSet.add(fileName)
 
 if showStats:
     print("### stats")
@@ -73,18 +70,33 @@ if showStats:
 
 print("processing files: " + str(len(fileSet)))
 
+is64Bit = False
+execType = run_command("file " + execFile)
+if "Mach-O 64-bit executable x86_64" in execType:
+    is64Bit = True
+else:
+    print("WARNING: unexpected file type (expected a executable), assuming 32-bit: " + execType)
+
 for f in fileSet:
     fullFile = crashDir + "/" + f
     #print(fullFile)
 
-    # XXX: 32bit disasm:   --ex "disass $eip, $eip+16"
-    disasm = '--ex "disass \$rip, \$rip+16"'
-    disasm = ''
+    if is64Bit:
+        disasm = '--ex "disass \$rip, \$rip+16"'
+    else:
+        disasm = '--ex "disass $eip, $eip+16"'
+
     regdump = '--ex "info reg"'
     regdump = ''
-    cmd = 'gdb --batch -q -ex "r <' + fullFile + '" --ex "back" ' + disasm + ' ' + regdump + ' --ex "quit" "' + execFile + '"'
+
+    ## XXX get params from formula?!!11
+    execParams = "-o"
+    cmd = 'gdb --batch -q -ex=run --ex "back" ' + disasm + ' ' + regdump + ' --ex "quit" --args "' + execFile + '" ' + execParams + " " + fullFile
     out = run_command(cmd)
     print(cmd)
+
+    print("### RAW:")
+    print(out)
 
     s1 = "Program received signal"
     s2 = "A debugging session is active."
@@ -93,9 +105,9 @@ for f in fileSet:
 
     # HACK fragile way to get only crash signature & backtrace
     stripped = out[start:end]
-#    print("### stripped")
+    print("### stripped:")
     print(stripped)
-#    break
+
 
 # TODO only check one file from each subdir, since they have the same "crash signature" (???)
 # TODO extract crash signal & hash from path
