@@ -41,7 +41,7 @@ if not os.path.isdir(rootDir + "/.fuzz-afl"):
     os.mkdir(rootDir + "/.fuzz-afl")
 
 if len(sys.argv) < 2:
-    print("Syntax: " + sys.argv[1] + " formula <options>")
+    print("Syntax: " + sys.argv[0] + " formula <options>")
     print("  --clang=1  instrument with afl-gcc / afl-g++ (default)")
     print("  --gcc=1    instrument with afl-gcc / afl-g++")
     sys.exit()
