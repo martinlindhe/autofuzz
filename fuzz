@@ -41,10 +41,16 @@ if not os.path.isdir(rootDir + "/.fuzz-afl"):
     os.mkdir(rootDir + "/.fuzz-afl")
 
 if len(sys.argv) < 2:
-    print("ERROR: supply formula name")
+    print("Syntax: " + sys.argv[1] + " formula <options>")
+    print("  --clang=1  instrument with afl-gcc / afl-g++ (default)")
+    print("  --gcc=1    instrument with afl-gcc / afl-g++")
     sys.exit()
 
 formulaName = sys.argv[1]
+
+useClang = True
+if sys.argv[2] == "--gcc=1":
+    useClang = False
 
 try:
     formula = get_class("formulas." + formulaName + "." + formulaName)
@@ -81,6 +87,13 @@ if not os.path.isfile(fuzzTarget):    # TODO cli switch to force rebuild
         capture_command(cleanCmd)
 
     for buildCmd in formula.build:
+        if useClang:
+            buildCmd = buildCmd.replace("{AFL_CC}", "afl-clang")
+            buildCmd = buildCmd.replace("{AFL_CXX}", "afl-clang++")
+        else:
+            buildCmd = buildCmd.replace("{AFL_CC}", "afl-gcc")
+            buildCmd = buildCmd.replace("{AFL_CXX}", "afl-g++")
+
         print("BUILD # " + buildCmd)
         passthru_command(buildCmd)
 

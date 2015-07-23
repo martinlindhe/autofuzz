@@ -18,7 +18,7 @@ class libarchive:
 
     build = [
         "build/autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC={AFL_CC} ./configure --disable-shared",
         "make",
-        "afl-gcc -I libarchive -o examples/minitar/minitar examples/minitar/minitar.c .libs/libarchive.a -lz -lbz2"  # XXX dont compile
+        "{AFL_CC} -I libarchive -o examples/minitar/minitar examples/minitar/minitar.c .libs/libarchive.a -lz -lbz2"  # XXX dont compile
     ]

@@ -19,6 +19,6 @@ class wladx:
     ]
 
     build = [
-        "mkdir build",
-        "cd build && CC=afl-clang cmake -DCMAKE_BUILD_TYPE=Debug .. && make"
+        "mkdir -p build",
+        "cd build && CC={AFL_CC} cmake -DCMAKE_BUILD_TYPE=Debug .. && make"
     ]

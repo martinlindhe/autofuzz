@@ -25,7 +25,7 @@ class zlib:
     ]
 
     build = [
-        "CC=afl-gcc ./configure",
+        "CC={AFL_CC} ./configure",
         "make",
-        "afl-gcc -L. libz.so examples/zpipe.c -o examples/zpipe"
+        "{AFL_CC} -L. libz.so examples/zpipe.c -o examples/zpipe"
     ]

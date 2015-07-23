@@ -19,6 +19,6 @@ class libvpx:
     ]
 
     build = [
-        "CC=afl-gcc CXX=afl-g++ ./configure --disable-shared",
+        "CC={AFL_CC} CXX={AFL_CXX} ./configure --disable-shared",
         "make"
     ]

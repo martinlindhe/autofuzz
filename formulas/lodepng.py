@@ -24,5 +24,5 @@ class lodepng:
     ]
 
     build = [
-        "afl-gcc -x c lodepng.cpp example_decode.c -o example_decode"
+        "{AFL_CC} -x c lodepng.cpp example_decode.c -o example_decode"
     ]

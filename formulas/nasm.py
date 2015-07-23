@@ -25,6 +25,6 @@ class nasm:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc ./configure",
+        "CC={AFL_CC} ./configure",
         "make"
     ]

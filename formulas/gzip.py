@@ -19,6 +19,6 @@ class gzip:
 
     build = [
         "./bootstrap",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC={AFL_CC} ./configure --disable-shared",
         "make"
     ]

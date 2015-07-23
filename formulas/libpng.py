@@ -18,7 +18,7 @@ class libpng:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC={AFL_CC} ./configure --disable-shared",
         "make",
         "make contrib/libtests/readpng"   # XXX not enough
     ]

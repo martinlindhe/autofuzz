@@ -17,5 +17,5 @@ class rtmpdump:
     ]
 
     build = [
-        "make SYS=darwin CC=afl-gcc"   ### XXXX SYS=posix on Linux! !!!
+        "make SYS=darwin CC={AFL_CC}"   ### XXXX SYS=posix on Linux! !!!
     ]

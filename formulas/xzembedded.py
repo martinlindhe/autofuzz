@@ -23,5 +23,5 @@ class xzembedded:
     ]
 
     build = [
-        "cd userspace; make CC=afl-gcc"
+        "cd userspace; make CC={AFL_CC}"
     ]

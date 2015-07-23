@@ -19,6 +19,6 @@ class udis86:
 
     build = [
         "./autogen.sh",
-        "./configure --disable-shared CC=afl-gcc",
+        "./configure --disable-shared CC={AFL_CC}",
         "make"
     ]

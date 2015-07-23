@@ -26,6 +26,6 @@ class tar:
 
     build = [
         "./bootstrap",
-        "./configure CC=afl-gcc --disable-gcc-warnings",
+        "./configure CC={AFL_CC} --disable-gcc-warnings",
         "make"
     ]

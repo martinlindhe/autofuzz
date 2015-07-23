@@ -19,5 +19,5 @@ class libwebm:
     ]
 
     build = [
-        "make CXX=afl-g++"
+        "make CXX={AFL_CXX}"
     ]

@@ -19,6 +19,6 @@ class libogg:
     ]
 
     build = [
-        "CC=afl-gcc ./autogen.sh --disable-shared",
+        "CC={AFL_CC} ./autogen.sh --disable-shared",
         "make"
     ]

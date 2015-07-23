@@ -25,6 +25,6 @@ class libmspack:
     ]
 
     build = [
-        "./configure --disable-shared CC=afl-gcc CXX=afl-g++",
+        "./configure --disable-shared CC={AFL_CC} CXX={AFL_CXX}",
         "make"
     ]

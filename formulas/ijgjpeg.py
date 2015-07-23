@@ -19,6 +19,6 @@ class ijgjpeg:
 
     build = [
         "autoreconf -fiv",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC={AFL_CC} ./configure --disable-shared",
         "make"
     ]

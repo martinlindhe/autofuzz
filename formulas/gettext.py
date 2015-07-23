@@ -20,6 +20,6 @@ class gettext:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared",
+        "CC={AFL_CC} ./configure --disable-shared",
         "make"
     ]

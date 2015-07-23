@@ -36,6 +36,6 @@ class pdfium:
     ]
 
     build = [
-        "CC=afl-gcc CXX=afl-g++ build/gyp_pdfium",
+        "CC={AFL_CC} CXX={AFL_CXX} build/gyp_pdfium",
         "make pdfium_test"
     ]

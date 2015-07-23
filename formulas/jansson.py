@@ -19,7 +19,7 @@ class jansson:
 
     build = [
         "autoreconf -i",
-        "./configure --disable-shared CC=afl-gcc",
+        "./configure --disable-shared CC={AFL_CC}",
         "make",
         "cd test/bin && make json_process",
     ]

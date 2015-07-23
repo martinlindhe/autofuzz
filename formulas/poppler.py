@@ -18,6 +18,6 @@ class poppler:
     ]
 
     build = [
-        "CC=afl-gcc CXX=afl-g++ ./autogen.sh --disable-shared",
+        "CC={AFL_CC} CXX={AFL_CXX} ./autogen.sh --disable-shared",
         "make"
     ]

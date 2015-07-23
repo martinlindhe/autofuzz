@@ -30,6 +30,6 @@ class speex:
 
     build = [
         "./autogen.sh",
-        "CC=afl-gcc ./configure --disable-shared --enable-binaries",
+        "CC={AFL_CC} ./configure --disable-shared --enable-binaries",
         "make"
     ]

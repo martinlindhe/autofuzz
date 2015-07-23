@@ -26,6 +26,6 @@ class patch:
 
     build = [
         "./bootstrap",
-        "CC=afl-gcc ./configure",
+        "CC={AFL_CC} ./configure",
         "make"
     ]

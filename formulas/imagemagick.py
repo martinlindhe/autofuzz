@@ -17,6 +17,6 @@ class imagemagick:
     ]
 
     build = [
-        "CC=afl-gcc CXX=afl-g++ ./configure --disable-shared --enable-delegate-build --with-modules=yes",
+        "CC={AFL_CC} CXX={AFL_CXX} ./configure --disable-shared --enable-delegate-build --with-modules=yes",
         "make"
     ]

@@ -18,6 +18,6 @@ class bzip2:
     ]
 
     build = [
-        "CC=afl-gcc ./configure",
+        "CC={AFL_CC} ./configure",
         "make"
     ]

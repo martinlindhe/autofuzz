@@ -23,6 +23,6 @@ class yasm:
     ]
 
     build = [
-        "CC=afl-gcc ./autogen.sh",
+        "CC={AFL_CC} ./autogen.sh",
         "make"
     ]

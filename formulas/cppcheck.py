@@ -25,5 +25,5 @@ class cppcheck:
     ]
 
     build = [
-        "CXX=afl-g++ make"
+        "CXX={AFL_CXX} make"
     ]
