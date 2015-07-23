@@ -147,7 +147,7 @@ else:
 
 # TODO prepare test cases from dataTypes list
 aflFuzzTarget = rootDir + "/" + formulaPath + "/" + fuzzTarget
-aflFuzzTargetParam = formula.targetParam
+aflFuzzTargetParam = formula.targetParam + " @@"    # NOTE: afl replaces @@ with input file name
 aflFuzzParam = formula.aflFuzzParam  # XXX faillback to empty string if unset (?) or rather, extend formulas from base formula?
 fuzzCmd = "afl-fuzz -i " + aflInDir + " -o " + aflOutDir + " " + aflFuzzParam + " " + aflFuzzTarget + " " + aflFuzzTargetParam
 
