@@ -91,7 +91,7 @@ for f in fileSet:
 
     ## XXX get params from formula?!!11
     execParams = "-o"
-    cmd = 'gdb --batch -q -ex=run --ex "back" ' + disasm + ' ' + regdump + ' --ex "quit" --args "' + execFile + '" ' + execParams + " " + fullFile
+    cmd = 'gdb --batch -q --ex "run" --ex "back" ' + disasm + ' ' + regdump + ' --ex "quit" --args "' + execFile + '" ' + execParams + ' "' + fullFile + '"'
     out = run_command(cmd)
     print(cmd)
 
